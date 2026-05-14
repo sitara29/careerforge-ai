@@ -593,10 +593,10 @@ function CareerForgeApp() {
           <div style={{ display: "flex", justifyContent: "center", gap: 40, marginBottom: 48, flexWrap: "wrap" }}>
             {(
               [
-                ["10,000+", "Students Assessed"],
-                ["67/100", "Avg Score"],
-                ["2 min", "Assessment Time"],
-                ["#1", "Gap: DSA Skills"],
+                ["~2 min", "Assessment Time"],
+                ["25 pts", "Per Scoring Pillar"],
+                ["7-day", "Action Roadmap"],
+                ["100%", "Runs Locally"],
               ] as const
             ).map(([v, l]) => (
               <div key={l} style={{ textAlign: "center" }}>

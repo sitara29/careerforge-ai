@@ -162,7 +162,7 @@ function generateMockResult(
   const technical_score = Math.min(25, 6 + dsa * 5);
   const projects_score = Math.min(25, 8 + projects * 4 + (port >= 2 ? 2 : 0));
   const communication_score = Math.min(25, 8 + comm * 4 + mock * 1);
-  const resume_score = Math.min(25, (hasResume ? 12 : 8) + port * 2 + projects);
+  const resume_score = Math.min(25, (hasResume ? 16 : 7) + port * 2 + projects);
   const score = Math.min(
     99,
     Math.round(((technical_score + projects_score + communication_score + resume_score) / 100) * 100),

@@ -727,6 +727,21 @@ function CareerForgeApp() {
         }}
       >
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <button
+            onClick={() => setStep("upload")}
+            style={{
+              background: "transparent",
+              border: "1px solid #1f2937",
+              color: "#94a3b8",
+              padding: "8px 14px",
+              borderRadius: 8,
+              cursor: "pointer",
+              fontSize: 13,
+              marginBottom: 20,
+            }}
+          >
+            ← Back to Home
+          </button>
           <div style={{ marginBottom: 8, fontSize: 13, color: "#6b7280" }}>Step 1 of 3</div>
           <div style={{ background: "#1f2937", borderRadius: 4, height: 4, marginBottom: 32 }}>
             <div

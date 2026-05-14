@@ -570,7 +570,7 @@ function CareerForgeApp() {
               textTransform: "uppercase",
             }}
           >
-            AI-Powered · Under 2 Minutes
+            Recruiter Simulation Engine · Under 2 Minutes
           </div>
           <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 20px" }}>
             Know Your Interview

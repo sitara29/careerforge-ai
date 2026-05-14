@@ -162,7 +162,7 @@ function generateMockResult(
   const technical_score = Math.min(25, 6 + dsa * 5);
   const projects_score = Math.min(25, 8 + projects * 4 + (port >= 2 ? 2 : 0));
   const communication_score = Math.min(25, 8 + comm * 4 + mock * 1);
-  const resume_score = Math.min(25, (hasResume ? 12 : 8) + port * 2 + projects);
+  const resume_score = Math.min(25, (hasResume ? 16 : 7) + port * 2 + projects);
   const score = Math.min(
     99,
     Math.round(((technical_score + projects_score + communication_score + resume_score) / 100) * 100),
@@ -174,6 +174,7 @@ function generateMockResult(
   if (comm >= 2) strengths.push("Confident communication helps you sell your work clearly under pressure.");
   if (port >= 2) strengths.push("Online presence makes it easy for recruiters to verify your work.");
   if (mock >= 2) strengths.push("Mock interview reps reduce panic in the real thing.");
+  if (hasResume) strengths.push("Uploaded resume gives recruiters concrete material to evaluate against.");
   while (strengths.length < 3) strengths.push(MOCK_RESULT.strengths[strengths.length]);
 
   const weaknesses: string[] = [];
@@ -182,6 +183,7 @@ function generateMockResult(
   if (mock <= 1) weaknesses.push("Limited mock interview practice creates confidence gaps under pressure.");
   if (comm <= 1) weaknesses.push("Low confidence explaining projects will hurt behavioral rounds.");
   if (port <= 1) weaknesses.push("Weak online footprint — recruiters can't validate your claims.");
+  if (!hasResume) weaknesses.push("No resume uploaded — recruiters have nothing tangible to skim.");
   while (weaknesses.length < 3) weaknesses.push(MOCK_RESULT.weaknesses[weaknesses.length]);
 
   const missing: string[] = [];
@@ -213,9 +215,16 @@ function generateMockResult(
       ? { type: "good", text: "Sounds articulate on paper. Should handle behavioral round fine." }
       : { type: "warn", text: "Communication signal unclear. Recruiter screen will tell." },
   );
+  monologue.push(
+    hasResume
+      ? { type: "good", text: "Actual resume PDF attached — at least I have something concrete to skim before the call." }
+      : { type: "bad", text: "No resume on file. I'm judging entirely off self-claims, which is a yellow flag." },
+  );
   monologue.push({
     type: "bad",
-    text: "No quantified impact anywhere — this reads like a task list, not achievements.",
+    text: hasResume
+      ? "Resume is here but I see no quantified impact — reads like a task list, not achievements."
+      : "Without a resume I can't even check for impact statements — has to be inferred.",
   });
   monologue.push(
     score >= 75
@@ -254,7 +263,12 @@ function generateMockResult(
   ];
 
   const recruiter_concerns: string[] = [];
-  if (resume_score < 18) recruiter_concerns.push("Resume lacks measurable impact statements.");
+  if (!hasResume) recruiter_concerns.push("No resume uploaded — evaluation relies on self-reported signal only.");
+  if (resume_score < 18) recruiter_concerns.push(
+    hasResume
+      ? "Uploaded resume lacks measurable impact statements."
+      : "Resume evidence missing — impact claims unverifiable.",
+  );
   if (projects_score < 18) recruiter_concerns.push("Limited evidence of shipped, deployed work.");
   if (recruiter_concerns.length < 2)
     recruiter_concerns.push("Limited evidence of collaborative or team projects.");

@@ -1016,7 +1016,21 @@ function CareerForgeApp() {
           >
             CareerForge AI
           </div>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <button
+              onClick={() => setStep("upload")}
+              style={{
+                background: "#111827",
+                border: "1px solid #374151",
+                color: "#94a3b8",
+                padding: "8px 16px",
+                borderRadius: 8,
+                cursor: "pointer",
+                fontSize: 13,
+              }}
+            >
+              ← Home
+            </button>
             <button
               onClick={() => {
                 setStep("upload");

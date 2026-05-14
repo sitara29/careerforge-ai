@@ -215,9 +215,16 @@ function generateMockResult(
       ? { type: "good", text: "Sounds articulate on paper. Should handle behavioral round fine." }
       : { type: "warn", text: "Communication signal unclear. Recruiter screen will tell." },
   );
+  monologue.push(
+    hasResume
+      ? { type: "good", text: "Actual resume PDF attached — at least I have something concrete to skim before the call." }
+      : { type: "bad", text: "No resume on file. I'm judging entirely off self-claims, which is a yellow flag." },
+  );
   monologue.push({
     type: "bad",
-    text: "No quantified impact anywhere — this reads like a task list, not achievements.",
+    text: hasResume
+      ? "Resume is here but I see no quantified impact — reads like a task list, not achievements."
+      : "Without a resume I can't even check for impact statements — has to be inferred.",
   });
   monologue.push(
     score >= 75

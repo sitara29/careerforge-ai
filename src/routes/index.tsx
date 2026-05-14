@@ -805,10 +805,11 @@ function CareerForgeApp() {
             Continue →
           </button>
         </div>
+        <div style={{ textAlign: "center", padding: "24px", borderTop: "1px solid #1f2937", color: "#374151", fontSize: 12, marginTop: 40 }}>
+          CareerForge AI © 2026 · Built for AI CareerForge Hackathon
+        </div>
       </div>
     );
-
-  // ── SELF ASSESSMENT ──
   if (step === "assess")
     return (
       <div

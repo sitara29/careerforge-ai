@@ -183,6 +183,7 @@ function generateMockResult(
   if (mock <= 1) weaknesses.push("Limited mock interview practice creates confidence gaps under pressure.");
   if (comm <= 1) weaknesses.push("Low confidence explaining projects will hurt behavioral rounds.");
   if (port <= 1) weaknesses.push("Weak online footprint — recruiters can't validate your claims.");
+  if (!hasResume) weaknesses.push("No resume uploaded — recruiters have nothing tangible to skim.");
   while (weaknesses.length < 3) weaknesses.push(MOCK_RESULT.weaknesses[weaknesses.length]);
 
   const missing: string[] = [];

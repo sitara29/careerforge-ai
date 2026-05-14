@@ -263,7 +263,12 @@ function generateMockResult(
   ];
 
   const recruiter_concerns: string[] = [];
-  if (resume_score < 18) recruiter_concerns.push("Resume lacks measurable impact statements.");
+  if (!hasResume) recruiter_concerns.push("No resume uploaded — evaluation relies on self-reported signal only.");
+  if (resume_score < 18) recruiter_concerns.push(
+    hasResume
+      ? "Uploaded resume lacks measurable impact statements."
+      : "Resume evidence missing — impact claims unverifiable.",
+  );
   if (projects_score < 18) recruiter_concerns.push("Limited evidence of shipped, deployed work.");
   if (recruiter_concerns.length < 2)
     recruiter_concerns.push("Limited evidence of collaborative or team projects.");

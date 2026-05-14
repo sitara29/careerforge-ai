@@ -550,7 +550,7 @@ function CareerForgeApp() {
               borderRadius: 20,
             }}
           >
-            Free · No signup required
+            Hackathon MVP Demo
           </div>
         </nav>
 

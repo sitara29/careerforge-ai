@@ -1,4 +1,5 @@
 Published : career-forge-mvp-ai.lovable.app   
+the video link : https://drive.google.com/file/d/19_K0qSv9plT7Ox4U2CTXJOvFAI2tLa7M/view?usp=sharing
 # CareerForge AI 🚀  
 ### Know Your Interview Readiness Before the Real Interview
 

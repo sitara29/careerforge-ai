@@ -174,6 +174,7 @@ function generateMockResult(
   if (comm >= 2) strengths.push("Confident communication helps you sell your work clearly under pressure.");
   if (port >= 2) strengths.push("Online presence makes it easy for recruiters to verify your work.");
   if (mock >= 2) strengths.push("Mock interview reps reduce panic in the real thing.");
+  if (hasResume) strengths.push("Uploaded resume gives recruiters concrete material to evaluate against.");
   while (strengths.length < 3) strengths.push(MOCK_RESULT.strengths[strengths.length]);
 
   const weaknesses: string[] = [];
